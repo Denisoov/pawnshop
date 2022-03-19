@@ -18,7 +18,10 @@ export const mutations = {
 
 export const getters = {
     userName: ({ firstName, patronymic }) => {
-        const namePatronymic = `${firstName} ${patronymic[0]}`
+        
+        const namePatronymic = (firstName && patronymic) 
+            ? `${firstName} ${patronymic[0]}.`
+            : `Пользователь`
 
         return namePatronymic
     }
