@@ -29,13 +29,15 @@ export default {
   css: [
     '@/assets/styles/index.scss'],
   plugins: [
+    '@/plugins/api.js',
   ],
   components: true,
   buildModules: [
     '@nuxtjs/vuetify',
   ],
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios'
   ],
   vuetify: {
     treeShake: true,
