@@ -1,0 +1,37 @@
+#-----------------------------------------
+# GitHub Action CI
+#-----------------------------------------
+name: pawnshop-ci
+
+on:
+  push:
+    branches:
+      - dev-nikita
+      - dev-ivan
+      - master
+  pull_request:
+    branches:
+      - dev-nikita
+      - dev-ivan
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.17.0
+      - name: Установка пакетов
+        run: npm install
+
+      - name: Формирование билда
+        run: npm run build
+      
