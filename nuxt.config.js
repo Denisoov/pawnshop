@@ -23,6 +23,7 @@ export default {
     scss: [
     '@/assets/styles/colors.scss',
     '@/assets/styles/fonts.scss',
+    '@/assets/styles/scroll.scss',
     ],
   },
   css: [
