@@ -1,6 +1,6 @@
 # pawnshop
 
-![workflow](https://github.com/Denisoov/pawnshop/actions/workflows/ci.yml/badge.svg)
+![build](https://github.com/Denisoov/pawnshop/actions/workflows/ci.yml/badge.svg)
 
 ## Build Setup
 
