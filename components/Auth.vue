@@ -1,7 +1,7 @@
 <template>
   <div class="dialog">
       <div class="dialog-header">
-          <span>Вход</span>
+          <span class="enter-text">Вход</span>
       </div>
       <hr>
       <div class="dialog-container">
@@ -33,10 +33,14 @@ export default {
         border-radius: 8px;
         background-color: white;
         width: 400px;
+        height: 300px;
         box-shadow: 0px 6px 37px rgba(0, 0, 0, 0.1);
     }
     .dialog-header{
         padding: 10px 15px;
+    }
+    .enter-text{
+        font-size: 20px;
     }
     .dialog-container{
         padding: 5px 20px 15px 20px;

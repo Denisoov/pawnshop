@@ -1,18 +1,17 @@
 <template>
-  <v-app>
-    <!-- <Auth></Auth> -->
-    
-  </v-app>
+  <div>
+    <LeftBar></LeftBar>
+  </div>
 </template>
 
 <script>
-import Auth from "../components/Auth"
+import LeftBar from "../components/LeftBar" 
 
 export default {
-  name: 'IndexPage',
   components:{
-    Auth
+    LeftBar
   }
+
 }
 </script>
 
