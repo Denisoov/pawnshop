@@ -1,17 +1,57 @@
 <template>
     <aside class="sidebar">
         <div class="sidebar-head">
-            <div class="sidebar-head__title">Иван П.</div>
+            <div class="sidebar-head--container">
+                <span class="sidebar-head__title">
+                    {{ userName }}
+                </span>
+                <IconExit class="sidebar-head__icon-exit" />
+            </div>
             <hr>
         </div>
         <div class="links">
-            <nuxt-link class="links__link" to="/">Отчеты</nuxt-link>
-            <nuxt-link class="links__link" to="/hello">Отчеты</nuxt-link>
-            <nuxt-link class="links__link" to="/hello2">Отчеты</nuxt-link>
-            <nuxt-link class="links__link" to="/hello1">Отчеты</nuxt-link>
+            <nuxt-link 
+                class="links__link" 
+                to="/"
+            >
+            Предметы
+            </nuxt-link>
+            <nuxt-link 
+                class="links__link" 
+                to="/hello"
+            >
+            Статистика
+            </nuxt-link>
+            <nuxt-link 
+                class="links__link" 
+                to="/hello2"
+            >
+            Пользователи
+            </nuxt-link>
+            <nuxt-link 
+                class="links__link" 
+                to="/hello1"
+            >Отчеты
+            </nuxt-link>
         </div>
     </aside>
 </template>
+
+<script>
+
+import IconExit from '@/components/icons/IconExit'
+
+export default {
+    components: {
+        IconExit
+    },
+    computed: {
+        userName() {
+            return this.$store.getters['user/userName']
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
     .sidebar {
@@ -20,14 +60,26 @@
         background-color: $color-dark;
         padding: 6px 14px;
         color: #fff;
+        box-shadow: -7px 3px 8px 8px rgb(17 16 29 / 75%);
+
     }
     .sidebar-head {
         margin: 20px 0;
+        
+        &--container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
 
         &__title {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 18px;
-            margin-bottom: 8px;
+        }
+
+        &__icon-exit {
+            cursor: pointer;
         }
     }
     .links {
@@ -44,7 +96,7 @@
             text-decoration: none;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-weight: 500;
-            font-size: 18px;
+            font-size: 17px;
             font-style: normal;
             border-radius: 8px;
 

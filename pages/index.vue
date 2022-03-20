@@ -331,6 +331,8 @@
 
 <style lang="scss">
   .content {
-    margin: 0 calc((100% - 1200px) / 2);
+    width: 100%;
+    padding-top: 60px;
+    margin: 0 60px;
   }
 </style>
