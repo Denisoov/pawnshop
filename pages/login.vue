@@ -1,11 +1,11 @@
 <template>
-    <div class="login">
-        <Auth></Auth>
+    <div class="page">
+        <auth />
     </div>
 </template>
 
 <script>
-import Auth from "../components/Auth"
+import Auth from '@/components/Auth'
 
 export default {
     components:{
@@ -15,11 +15,11 @@ export default {
 </script>
 
 <style lang="scss">
-    .login{
+    .page{
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        background-color: darkslateblue;
+        background-color: $background-theme;
     }
 </style>
