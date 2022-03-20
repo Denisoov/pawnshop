@@ -1,11 +1,20 @@
 <template>
   <div>
-    Главная страница
+    <LeftBar></LeftBar>
   </div>
 </template>
 
 <script>
+import LeftBar from "../components/LeftBar" 
+
 export default {
-  name: 'IndexPage'
+  components:{
+    LeftBar
+  }
+
 }
 </script>
+
+<style lang="scss">
+
+</style>
