@@ -1,13 +1,19 @@
+import Role from '../models/Role.js'
+
 class AuthController {
-    async registration(request, response) {
+    async registration(req, res) {
         try {
             
         } catch (error) {
             
         }
     }
-    async login(request, response) {
+    async login(req, res) {
         try {
+            const userRole = new Role()
+            const adminrRole = new Role({ role: "ADMIN" })
+            await userRole.save()
+            await adminrRole.save()
             res.json('hello')
         } catch (error) {
             
