@@ -1,22 +1,40 @@
+import User from '../models/User.js'
 import Role from '../models/Role.js'
+
+import bcrypt from 'bcryptjs'
 
 class AuthController {
     async registration(req, res) {
         try {
+            const { username, password } = req.body
+            const candidate = await User.findOne({ username })
+
+            if (candidate) return res.status(400).json('Пользователь с таким логином уже существует')
             
+            const hashPassword = bcrypt.hashSync(password, 7);
+
+            const userRole = await Role.findOne({ role: "ADMIN" })
+
+            const user = new User({ 
+                username, 
+                password: hashPassword, 
+                roles: userRole.role
+            })
+
+            user.save()
+
+            return res.json('Вы успешло зарегестрировали пользователя')
+
         } catch (error) {
-            
+            res.status(400).json('Невозможно зарегестрироваться')
         }
     }
     async login(req, res) {
         try {
-            const userRole = new Role()
-            const adminrRole = new Role({ role: "ADMIN" })
-            await userRole.save()
-            await adminrRole.save()
-            res.json('hello')
+            console.log('hello')
         } catch (error) {
-            
+            console.log(error)
+            res.status(400).json('Невозможно авторизоваться')
         }
     }
 }
