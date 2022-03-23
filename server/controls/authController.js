@@ -43,6 +43,7 @@ class AuthController {
             res.status(400).json({ error: 'Невозможно зарегестрироваться' })
         }
     }
+
     async login(req, res) {
         try {
             const { username, password } = req.body
@@ -62,6 +63,15 @@ class AuthController {
         } catch (error) {
             console.log(error)
             res.status(400).json('Невозможно авторизоваться')
+        }
+    }
+    
+    async getAllUsers(req, res) {
+        try {
+            const users = await User.find()
+            res.json(users)
+        } catch(error) {
+            res.status(400).json('Невозможно получить список пользователей')
         }
     }
 }
