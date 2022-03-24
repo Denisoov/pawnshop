@@ -1,9 +1,6 @@
 import jwt from 'jsonwebtoken'
 
 export default function (req, res, next) {
-    console.log(req.method)
-    if (req.method === "GET") next()
-
     try {
         const token = req.headers.authorization.split(' ')[1]
 
@@ -18,6 +15,4 @@ export default function (req, res, next) {
     } catch (error) {
         res.status(403).json({ error: "Невозможно получить список пользователей" })
     }
-
-
 }
