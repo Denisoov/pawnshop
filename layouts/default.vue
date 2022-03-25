@@ -1,7 +1,7 @@
 <template>
     <div class="page">
       <div class="page__header-bar">
-        <left-bar v-if="authorized" />
+        <left-bar />
       </div>
       <nuxt />
     </div>

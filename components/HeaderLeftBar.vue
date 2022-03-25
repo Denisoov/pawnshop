@@ -14,24 +14,24 @@
                 class="links__link" 
                 to="/"
             >
-            Предметы
+            Общее
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello"
+                to="/statistics"
             >
             Статистика
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello2"
+                to="/products"
             >
-            Пользователи
+            Продукты
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello1"
-            >Отчеты
+                to="/admin"
+            >Админ панель
             </nuxt-link>
         </div>
     </aside>
