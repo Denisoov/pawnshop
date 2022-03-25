@@ -1,9 +1,19 @@
-export default async function ({ store, redirect, route }) {
-  const token = await store.state.user.token
+export default function ({ store, redirect, route }) {
+  const token = store.state.user.token
 
-  if (token) {
+  //добавить проверку на куки
+
+  console.log(token)
+
+  if (!token) {
     if (route.name !== 'login') {
         redirect('/login')
     }
   }
+  else if (token) {
+    if (route.name === 'login') {
+      redirect('/')
+    }
+  }
+
 }

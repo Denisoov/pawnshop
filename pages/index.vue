@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div>
     <table-orders />
   </div>
 </template>
@@ -16,9 +16,4 @@ export default {
 </script>
 
 <style lang="scss">
-  .content {
-    width: 100%;
-    padding-top: 60px;
-    margin: 0 60px;
-  }
 </style>
