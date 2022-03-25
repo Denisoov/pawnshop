@@ -1,4 +1,5 @@
 export const state = () => ({
+    token: null,
     firstName: null,
     secondName: null,
     patronymic: null,
@@ -24,5 +25,6 @@ export const getters = {
             : `Пользователь`
 
         return namePatronymic
-    }
+    },
+    authorized: ({ token }) => !!token
 }

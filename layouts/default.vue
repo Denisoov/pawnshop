@@ -1,7 +1,7 @@
 <template>
     <div class="page">
       <div class="page__header-bar">
-        <left-bar />
+        <left-bar v-if="authorized" />
       </div>
       <nuxt />
     </div>
@@ -15,6 +15,11 @@ import LeftBar from '@/components/HeaderLeftBar'
 export default {
   components: {
     LeftBar
+  },
+  computed: {
+    authorized() {
+      return this.$store.getters['user/authorized']
+    }
   }
 }
 </script>

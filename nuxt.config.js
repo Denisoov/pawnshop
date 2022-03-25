@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   ssr: false,
 
@@ -25,6 +23,9 @@ export default {
     '@/assets/styles/fonts.scss',
     '@/assets/styles/scroll.scss',
     ],
+  },
+  router: {
+    middleware: ['authMiddleware']
   },
   css: [
     '@/assets/styles/index.scss'],
