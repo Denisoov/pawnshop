@@ -28,12 +28,14 @@ router.get(
     authController.getAllUsers
 )
 
-router.post('/order/create', 
-[
-    authMiddleware,
-    uploadMiddleware.single('image')
-]
-, orderController.createProduct)
+router.post(
+    '/order/create', 
+    [
+        authMiddleware, uploadMiddleware.single('image')
+    ], 
+    orderController.createProduct
+)
+
 router.get('/order/all', authMiddleware, orderController.getAllOrders)
 router.post('/order/remove', orderController.removeProduct)
 

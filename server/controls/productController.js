@@ -5,15 +5,17 @@ class OrderController {
         try {
             const product = req.body
 
+            console.log(product)
+
             const order = new Order({
+                productName: product.productName,
+                price: product.price,
                 articul: product.articul,
                 surName: product.surName,
                 firstName: product.firstName,
                 patronymic: product.patronymic,
                 series: product.series,
                 number: product.number,
-                productName: product.productName,
-                price: product.price,
                 company: product.company,
                 rebuyDate: product.rebuyDate,
                 image: req.file ? req.file.path : ''
