@@ -1,13 +1,14 @@
 import Router from 'express'
 
 import authController from './controls/authController.js'
-import productController from './controls/productController.js'
+import orderController from './controls/productController.js'
 
 
 import { check } from 'express-validator'
 
 import authMiddleware from './middleware/authMiddleware.js'
 import roleMiddleware from './middleware/roleMiddleware.js'
+import uploadMiddleware from './middleware/uploadMiddleware.js'
 
 const router = new Router()
 
@@ -27,8 +28,13 @@ router.get(
     authController.getAllUsers
 )
 
-router.post('/product/create', productController.createProduct)
-router.post('/product/all', productController.getAllProducts)
-router.post('/product/remove', productController.removeProduct)
+router.post('/order/create', 
+[
+    authMiddleware,
+    uploadMiddleware.single('image')
+]
+, orderController.createProduct)
+router.get('/order/all', authMiddleware, orderController.getAllOrders)
+router.post('/order/remove', orderController.removeProduct)
 
 export default router

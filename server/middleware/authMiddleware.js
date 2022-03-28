@@ -9,9 +9,11 @@ export default function (req, res, next) {
 
         const decodeJWT = jwt.verify(token, "SECRET_KEY")
 
-        return res.user = decodeJWT
+        req.user = decodeJWT
+
+        next()
 
     } catch (error) {
-        res.status(403).json({ error: "Невозможно получить список пользователей" })
+        res.status(403).json({ error: "Проблема с авторизацией" })
     }
 }
