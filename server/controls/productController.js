@@ -12,6 +12,8 @@ class OrderController {
                 patronymic: product.patronymic,
                 series: product.series,
                 number: product.number,
+                productName: product.productName,
+                price: product.price,
                 company: product.company,
                 rebuyDate: product.rebuyDate,
                 image: req.file ? req.file.path : ''

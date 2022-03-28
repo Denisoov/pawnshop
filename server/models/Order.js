@@ -2,6 +2,8 @@ import pkg from 'mongoose';
 const { Schema, model } = pkg;
 
 const Order = new Schema({
+    productName: { type: String, required: true },
+    price: { type: Number, required: true },
     articul: { type: Number, required: true },
     surName: { type: String, required: true },
     firstName: { type: String, required: true },
