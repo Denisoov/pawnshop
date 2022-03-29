@@ -36,13 +36,17 @@ export default {
     :headers="headers"
     :items="products"
   >
-    <!-- <template v-slot:item="{ item }">
-      <v-chip
-        :color="getColor(item.price)"
+    <template v-slot:item.price="{ item }">
+      <div>
+        {{ item.price }}₽
+      </div>
+    </template>
+    <template v-slot:item.image="{ item }">
+      <div
       >
-        {{ item.price }}
-      </v-chip>
-    </template> -->
+        <img class="image" :src="`http://localhost:5000/${item.image}`" alt="">
+      </div>
+    </template>
   </v-data-table>
 </template>
 
@@ -52,4 +56,11 @@ export default {
 		box-shadow: 0px 0px 30px -20px rgb(149 157 189);
 		border-radius: 15px;
 	}
+  .image{
+    width: 64px;
+    height: 64px;
+  }
+  .text-start{
+    text-align: left;
+  }
 </style>
