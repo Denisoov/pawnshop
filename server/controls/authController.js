@@ -42,7 +42,7 @@ class AuthController {
 
             user.save()
 
-            return res.json({ error: 'Вы успешло зарегестрировали пользователя' })
+            return res.json({ answer: 'Вы успешло зарегестрировали пользователя' })
 
         } catch (error) {
             res.status(400).json({ error: 'Невозможно зарегестрироваться' })
