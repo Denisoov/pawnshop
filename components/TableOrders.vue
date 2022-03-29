@@ -58,7 +58,7 @@ export default {
     :headers="headers"
     :items="products"
   >
-    <template v-slot:item.articul="{ item }">
+    <template v-slot:item="{ item }">
       <v-chip
         :color="getColor(item.price)"
       >
