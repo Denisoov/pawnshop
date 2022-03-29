@@ -5,8 +5,6 @@ class OrderController {
         try {
             const product = req.body
 
-            console.log(product)
-
             const order = new Order({
                 productName: product.productName,
                 price: product.price,
@@ -40,7 +38,16 @@ class OrderController {
     }
     async removeProduct (req, res) {
         try {
+            const _id = req.body._id
             
+            if (!_id) return res.status(400).json('Такой записи не существет')
+
+            const removedOrder = await Order.findByIdAndRemove(_id)
+
+            const refreshOrders = await Order.find()
+
+            res.json(refreshOrders)
+
         } catch (error) {
             
         }
