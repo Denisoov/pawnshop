@@ -14,24 +14,24 @@
                 class="links__link" 
                 to="/"
             >
-            Предметы
+            Общее
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello"
+                to="/statistics"
             >
             Статистика
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello2"
+                to="/products"
             >
-            Пользователи
+            Продукты
             </nuxt-link>
             <nuxt-link 
                 class="links__link" 
-                to="/hello1"
-            >Отчеты
+                to="/admin"
+            >Админ панель
             </nuxt-link>
         </div>
     </aside>
@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
     .sidebar {
-        width: 256px;
+        width: 316px;
         height: 100%;
         background-color: $color-dark;
         padding: 6px 14px;
@@ -68,7 +68,6 @@ export default {
         
         &--container {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             margin-bottom: 8px;
         }

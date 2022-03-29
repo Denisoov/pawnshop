@@ -1,14 +1,18 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 import authRouter from './authRouter.js' 
 
-const  PORT = process.env.PORT || 8000
+const  PORT = process.env.PORT || 5000
 const server = express()
-const urlDB = `mongodb+srv://pawnshop:pawnshop@cluster0.xlez9.mongodb.net/pawnshop?retryWrites=true&w=majority`
+const urlDB = `mongodb://pawnshop:pawnshop@cluster0-shard-00-00.xlez9.mongodb.net:27017,cluster0-shard-00-01.xlez9.mongodb.net:27017,cluster0-shard-00-02.xlez9.mongodb.net:27017/pawnshop?ssl=true&replicaSet=atlas-ftiur5-shard-0&authSource=admin&retryWrites=true&w=majority`
 
-server.use(express.json)
-server.use('/auth', authRouter)
+server.use('/uploads', express.static('uploads'))
+server.use(cors())
+server.use(express.json())
+server.use('/api', authRouter)
+
 
 const start = async () => {
     try {
