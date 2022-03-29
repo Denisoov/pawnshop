@@ -16,10 +16,12 @@ export const state = () => ({
 })
 export const actions = {
     async getProductList({commit, rootState}){
-        const data = await this.$api.order.getProduct(rootState.user.token);
+        const { data } = await this.$api.order.getProduct(rootState.user.token);
         console.log(rootState.user.token)
 
         commit('SET_PRODUCT_LIST', data)
+
+        return data 
     }
 }
 export const mutations = {
