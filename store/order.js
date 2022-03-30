@@ -22,6 +22,9 @@ export const actions = {
         commit('SET_PRODUCT_LIST', data)
 
         return data 
+    },
+    async sendProduct({commit, rootState}, product){
+        await this.$api.order.sendProduct(rootState.user.token, product)
     }
 }
 export const mutations = {
