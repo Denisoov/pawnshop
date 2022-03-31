@@ -8,8 +8,10 @@
 import TableOrders from "@/components/TableOrders.vue"
 
 export default {
+  data:()=>({
+  }),
   components: {
-    TableOrders
+    TableOrders,
   },
   async asyncData({ store }){
     try {

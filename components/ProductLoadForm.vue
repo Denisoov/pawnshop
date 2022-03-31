@@ -74,8 +74,28 @@ export default {
         }
     }),
     methods:{
-        sendProductDate(product){
-            this.$store.dispatch('order/sendProduct', product)
+        async sendProductDate(product){
+            let articul = await this.getArticul();
+
+            let data = new FormData();
+            data.append('firstName', product.firstName)
+            data.append('surName', product.surName)
+            data.append('patronymic', product.patronymic)
+            data.append('series', product.series)
+            data.append('number', product.number)
+            data.append('productName', product.productName)
+            data.append('price', product.price)
+            data.append('company', product.company)
+            data.append('rebuyDate', product.rebuyDate)
+            data.append('articul', articul)
+            data.append('image', product.image, `${product.image}`)
+
+            this.$store.dispatch('order/sendProduct', data)
+        },
+        async getArticul(){
+            const productList = await this.$store.dispatch("order/getProductList")
+            let articul = productList[productList.length - 1].articul
+            return articul + 1
         }
     }
 }
