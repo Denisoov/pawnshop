@@ -1,45 +1,20 @@
 <script>
 export default {
+  props:{
+    products: Array
+  },
   data: () => ({
-	products: [
-		  {
-        first_name: 'Богдан',
-        surname: 'Балбесов',
-        patronymic: 'Петров',
-        passport: {
-          series: 3040,
-          number: 555333,
-        },
-        product_name: 'Iphone 7',
-        price: 4000,
-        company: false,
-        rebuy_date: '30.04.2022',
-        image: null,
-        articul: 10000,
-		  },
-      		  {
-        first_name: 'Богдан',
-        surname: 'Балбесов',
-        patronymic: 'Петров',
-        passport: {
-          series: 3040,
-          number: 555333,
-        },
-        product_name: 'Iphone 7',
-        price: 4000,
-        company: false,
-        rebuy_date: '30.04.2022',
-        image: null,
-        articul: 10000,
-		  }
-	],
   headers: [
+          { text: 'Фото', value: 'image' },
           { text: 'Артикул', value: 'articul', align: 'start', sortable: false, },
-          { text: 'Продукт', value: 'product_name' },
+          { text: 'Продукт', value: 'productName' },
           { text: 'Ставка', value: 'price' },
-          { text: 'Фамилия', value: 'surname' },
-          { text: 'Время', value: 'rebuy_date' },
-          { text: 'Номер паспорта', value: 'passport.number' },
+          { text: 'Фамилия', value: 'surName' },
+          { text: 'Имя', value: 'firstName' },
+          { text: 'Отчество', value: 'patronymic' },
+          { text: 'Время', value: 'rebuyDate' },
+          { text: 'Серия паспорта', value: 'series' },
+          { text: 'Номер паспорта', value: 'number' },
         ],
   }),
   computed: {
@@ -50,6 +25,9 @@ export default {
         else return 'green'
       },
   },
+  mounted(){
+    console.log(this.products)
+  }
 };
 </script>
 
@@ -58,12 +36,16 @@ export default {
     :headers="headers"
     :items="products"
   >
-    <template v-slot:item="{ item }">
-      <v-chip
-        :color="getColor(item.price)"
+    <template v-slot:item.price="{ item }">
+      <div>
+        {{ item.price }}₽
+      </div>
+    </template>
+    <template v-slot:item.image="{ item }">
+      <div
       >
-        {{ item.price }}
-      </v-chip>
+        <img class="image" :src="`http://localhost:5000/${item.image}`" alt="">
+      </div>
     </template>
   </v-data-table>
 </template>
@@ -74,4 +56,11 @@ export default {
 		box-shadow: 0px 0px 30px -20px rgb(149 157 189);
 		border-radius: 15px;
 	}
+  .image{
+    width: 64px;
+    height: 64px;
+  }
+  .text-start{
+    text-align: left;
+  }
 </style>

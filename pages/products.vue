@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table-orders />
+    <table-orders :products="products" />
   </div>
 </template>
 
@@ -8,13 +8,15 @@
 import TableOrders from "@/components/TableOrders.vue"
 
 export default {
+  data:()=>({
+  }),
   components: {
-    TableOrders
+    TableOrders,
   },
   async asyncData({ store }){
     try {
-      const { data } = await store.dispatch("order/getProductList")
-      console.log(data)
+      const products = await store.dispatch("order/getProductList")
+      return { products: products }
     } catch (error) {
       
     }

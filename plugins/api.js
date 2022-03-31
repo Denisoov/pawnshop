@@ -1,18 +1,15 @@
 import Auth from '@/api/auth'
 import Order from '@/api/order'
+import Admin from '@/api/admin'
 
 export default ({$axios, store}, inject) => {
     
     const token = store.state.user.token
 
-    const axiosInstance = $axios.create({
-        baseURL: "http://localhost:5000/api/",
-        headers: {'Authorization':  `Bearer ${token}`}
-    })
-
     const apiFactories = {
-        auth:  Auth(axiosInstance),
-        order: Order(axiosInstance)
+        auth:  Auth($axios),
+        admin: Admin($axios),
+        order: Order($axios)
     }
 
     inject('api', apiFactories)
