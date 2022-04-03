@@ -31,6 +31,8 @@ export default {
     '@/assets/styles/index.scss'],
   plugins: [
     '@/plugins/api.js',
+    '@/plugins/vee-validate',
+    '@plugins/mask.js'
   ],
   components: true,
   buildModules: [
