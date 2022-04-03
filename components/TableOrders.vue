@@ -6,7 +6,7 @@ export default {
   data: () => ({
   headers: [
           { text: 'Фото', value: 'image' },
-          { text: 'Артикул', value: 'articul', align: 'start', sortable: false, },
+          { text: 'Артикул', value: 'articul', align: 'start' },
           { text: 'Продукт', value: 'productName' },
           { text: 'Ставка', value: 'price' },
           { text: 'Фамилия', value: 'surName' },
