@@ -2,6 +2,7 @@ import Router from 'express'
 
 import authController from './controls/authController.js'
 import orderController from './controls/productController.js'
+import statisticController from './controls/statisticController.js'
 
 
 import { check } from 'express-validator'
@@ -38,5 +39,7 @@ router.post(
 
 router.get('/order/all', authMiddleware, orderController.getAllOrders)
 router.post('/order/remove', orderController.removeProduct)
+
+router.get('/statistic', authMiddleware, statisticController.getStatistic)
 
 export default router
