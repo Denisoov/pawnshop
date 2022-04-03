@@ -4,6 +4,7 @@ const { Schema, model } = pkg;
 const Order = new Schema({
     price: { type: Number, required: true },
     productName: { type: String, required: true },
+    commission: { type: Number, required: true },
     articul: { type: Number, required: true },
     surName: { type: String, required: true },
     firstName: { type: String, required: true },

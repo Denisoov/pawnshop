@@ -5,9 +5,12 @@ class OrderController {
         try {
             const product = req.body
 
+            const commiss = product.price / 100 * 20
+
             const order = new Order({
                 productName: product.productName,
                 price: product.price,
+                commission: commiss,
                 articul: product.articul,
                 surName: product.surName,
                 firstName: product.firstName,
