@@ -11,7 +11,6 @@ import UserCreation from "@/components/UserCreation"
 
 export default {
   components:{
-    ProductLoadForm,
     UsersTable,
     UserCreation
   },
