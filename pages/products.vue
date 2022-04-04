@@ -1,5 +1,22 @@
 <template>
-  <div>
+  <div data-app>
+    <v-dialog
+      v-model="dialog"
+      max-width="480px"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          class="dialog-button"
+        >
+          Добавить
+        </v-btn>
+      </template>
+      <ProductLoadForm />
+    </v-dialog>
     <table-orders :products="products" />
   </div>
 </template>
@@ -9,6 +26,7 @@ import TableOrders from "@/components/TableOrders.vue"
 
 export default {
   data:()=>({
+    dialog: false,
   }),
   components: {
     TableOrders,
@@ -23,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .dialog-button{
+    margin-bottom: 15px;
+  }
+</style>

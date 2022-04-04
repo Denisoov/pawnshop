@@ -1,11 +1,15 @@
 <template>
   <div>
-    
+    <StatisticCard />
   </div>
 </template>
 
 <script>
+import StatisticCard from "@/components/StatisticAll"
+
 export default {
-  name: 'InspirePage'
+  components:{
+    StatisticCard
+  }
 }
 </script>
